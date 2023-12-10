@@ -1,3 +1,10 @@
 <h1><%= @restaurant.name %></h1>
-<p>Located in: <%= @restaurant.address.capitalize %>, <%= @restaurant.city %></p>
+<p>Located in: <%= @restaurant.address %>, <%= @restaurant.city %></p>
 <p>Rating: <%= "⭐️" * @restaurant.rating %></p>
+
+<%= link_to "Delete Restaurant",
+    restaurant_path(@restaurant),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@restaurant.name}?"} %>
+
+<%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
+<%= link_to "Back to Index", restaurants_path %>
